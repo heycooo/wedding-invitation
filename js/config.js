@@ -10,7 +10,7 @@ window.WEDDING_CONFIG = {
     groomFather: "Alm. Wahyono",
     groomMother: "Alm. Rajinem",
 
-    brideName: "Meigia Nidya Sari, M.Si.",
+    brideName: "Meigia Nidya Sari",
     brideNickname: "Didis",
     brideFather: "Alm. H. Legino",
     brideMother: "Alm. Hj. Suati"
