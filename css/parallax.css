@@ -1,0 +1,102 @@
+.section,
+.closing { isolation: isolate; }
+
+.deco-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  clip-path: inset(-120vh 0 -120vh 0);
+}
+
+.deco {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+[data-parallax] { transform: translate3d(0, var(--py, 0px), 0); }
+.is-live [data-parallax] { will-change: transform; }
+
+#event { padding-bottom: 7.5rem; }
+#rsvp { padding-bottom: 9.2rem; }
+
+.deco--mist {
+  width: 140%;
+  left: -20%;
+  top: 28%;
+  opacity: 0.16;
+}
+
+.deco--couple-star {
+  width: 1.6rem;
+  left: 17%;
+  bottom: 6%;
+}
+
+.deco--cd-lg {
+  width: 2.8rem;
+  right: 4%;
+  top: 6%;
+}
+
+.deco--cd-md {
+  width: 2rem;
+  left: 6%;
+  bottom: 8%;
+}
+
+.deco--porcelain {
+  width: 9rem;
+  right: -12%;
+  bottom: -2.5rem;
+  transform: translate3d(0, var(--py, 0px), 0) scaleX(-1);
+}
+
+.deco--lily {
+  width: 9rem;
+  left: -12%;
+  bottom: -1rem;
+}
+
+.deco--filigree {
+  width: 6.5rem;
+  right: 0;
+  top: 0;
+  transform: translate3d(0, var(--py, 0px), 0) scaleX(-1);
+}
+
+.quote-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.deco--quote-md {
+  width: 2rem;
+  left: 24%;
+  top: 1.4rem;
+}
+
+.deco--quote-sm {
+  width: 1.5rem;
+  right: 30%;
+  bottom: 2.4rem;
+}
+
+.deco--twinkle { animation: twinkle 4.2s ease-in-out infinite alternate; }
+.deco--cd-md.deco--twinkle { animation-delay: -2.1s; }
+.deco--quote-md.deco--twinkle { animation-delay: -0.8s; }
+.deco--quote-sm.deco--twinkle { animation-delay: -3s; }
+.deco--couple-star.deco--twinkle { animation-delay: -1.2s; }
+
+@keyframes twinkle {
+  from { opacity: 0.4; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deco--twinkle { animation: none; }
+}

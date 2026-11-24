@@ -1,0 +1,35 @@
+/* ==========================================================
+   animations.css - animasi kemunculan saat halaman digulir.
+   Elemen yang beranimasi ditandai atribut data-reveal di HTML.
+   Kelas .reveal-ready dipasang oleh reveal.js, sehingga tanpa
+   JavaScript semua isi tetap terlihat.
+
+   Durasi: 0,8 detik, sekali per elemen, gerak kecil (14-16 px).
+   ========================================================== */
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0s),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0s);
+}
+.reveal-ready [data-reveal="left"]  { transform: translateX(-16px); }
+.reveal-ready [data-reveal="right"] { transform: translateX(16px); }
+
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Jeda bertahap antar elemen sejenis */
+.person:nth-child(2)             { --reveal-delay: 0.15s; }
+.event__card:nth-child(2)        { --reveal-delay: 0.12s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070d1c">
+  <title>Undangan Pernikahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Bodoni+Moda:ital,wght@0,500;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/cover.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/parallax.css">
+</head>
+<body class="is-locked">
+
+  <section class="cover" id="cover" aria-label="Sampul undangan">
+
+    <div class="envelope">
+      <div class="envelope__back"></div>
+      <div class="envelope__paper" role="img" aria-label="Kertas undangan pernikahan">
+        <div class="paper__inner"></div>
+        <div class="paper__card">
+          <div class="paper__face paper__face--front"></div>
+          <div class="paper__face paper__face--back"></div>
+        </div>
+      </div>
+      <div class="envelope__front"><div class="envelope__front-shape"></div></div>
+      <div class="envelope__shadow"><div class="envelope__shadow-shape"></div></div>
+      <div class="flap">
+        <div class="flap__side flap__side--out">
+          <div class="flap__shape"></div>
+          <div class="seal"></div>
+        </div>
+        <div class="flap__side flap__side--in">
+          <div class="flap__shape flap__shape--in"></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="cover__tap" id="coverTap" type="button" aria-label="Ketuk untuk membuka undangan"></button>
+
+    <div class="cover__stage">
+      <div class="cover__top">
+        <p class="cover__guest">Kepada Yth. <strong data-bind="guestName">Tamu Undangan</strong></p>
+      </div>
+      <div class="cover__footer">
+        <div class="cover__info">
+          <p class="cover__hint">Ketuk di mana saja untuk membuka</p>
+        </div>
+        <button class="btn cover__button" type="button" id="openInvitation">Buka Undangan</button>
+      </div>
+    </div>
+
+    <div class="cover__mist" aria-hidden="true"></div>
+  </section>
+
+  <main id="invitation">
+
+    <section class="section" id="couple">
+      <div class="deco-layer" aria-hidden="true">
+        <img class="deco deco--mist" data-parallax="0.12" src="assets/orn-mist.webp" alt="" width="960" height="232" loading="lazy" decoding="async">
+        <img class="deco deco--couple-star deco--twinkle" data-parallax="-0.06" src="assets/orn-star-sm.webp" alt="" width="110" height="112" loading="lazy" decoding="async">
+      </div>
+      <h2 class="section__title" data-reveal>Kedua mempelai</h2>
+      <div class="couple">
+        <article class="person" data-reveal="left">
+          <div class="person__photo" data-parallax="0.025" data-bind-photo="bride" role="img" aria-label="Foto mempelai wanita"></div>
+          <h3 data-bind="brideName">Mempelai Wanita</h3>
+          <p>Putri dari<br><span data-bind="brideFather">Nama Ayah</span> &amp; <span data-bind="brideMother">Nama Ibu</span></p>
+        </article>
+        <article class="person" data-reveal="right">
+          <div class="person__photo" data-parallax="0.045" data-bind-photo="groom" role="img" aria-label="Foto mempelai pria"></div>
+          <h3 data-bind="groomName">Mempelai Pria</h3>
+          <p>Putra dari<br><span data-bind="groomFather">Nama Ayah</span> &amp; <span data-bind="groomMother">Nama Ibu</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--tinted" id="countdown">
+      <div class="deco-layer" aria-hidden="true">
+        <img class="deco deco--cd-lg deco--twinkle" data-parallax="0.1" src="assets/orn-star-lg.webp" alt="" width="300" height="319" loading="lazy" decoding="async">
+        <img class="deco deco--cd-md deco--twinkle" data-parallax="-0.08" src="assets/orn-star-md.webp" alt="" width="200" height="212" loading="lazy" decoding="async">
+      </div>
+      <h2 class="section__title" data-reveal>Menuju hari bahagia</h2>
+      <div class="countdown" aria-live="off" data-reveal>
+        <div class="countdown__unit"><span class="countdown__num" data-countdown="days">00</span><span>Hari</span></div>
+        <div class="countdown__unit"><span class="countdown__num" data-countdown="hours">00</span><span>Jam</span></div>
+        <div class="countdown__unit"><span class="countdown__num" data-countdown="minutes">00</span><span>Menit</span></div>
+        <div class="countdown__unit"><span class="countdown__num" data-countdown="seconds">00</span><span>Detik</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="event">
+      <div class="deco-layer" aria-hidden="true">
+        <img class="deco deco--porcelain" data-parallax="0.18" src="assets/orn-porcelain.webp" alt="" width="640" height="687" loading="lazy" decoding="async">
+      </div>
+      <h2 class="section__title" data-reveal>Detail acara</h2>
+      <div class="event">
+        <a class="event__card" href="#" data-bind-link="calendar" target="_blank" rel="noopener" data-reveal>
+          <span class="event__label">Tanggal &amp; waktu</span>
+          <strong data-bind="dateText">Hari, 00 Bulan 0000</strong>
+          <span data-bind="timeText">00.00 WIB</span>
+          <span class="event__hint">Ketuk untuk simpan ke Google Calendar</span>
+        </a>
+        <a class="event__card" href="#" data-bind-link="maps" target="_blank" rel="noopener" data-reveal>
+          <span class="event__label">Lokasi</span>
+          <strong data-bind="venueName">Nama Venue</strong>
+          <span data-bind="venueAddress">Alamat venue</span>
+          <span class="event__hint">Ketuk untuk buka Google Maps</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section--tinted" id="map">
+      <h2 class="section__title" data-reveal>Peta lokasi</h2>
+      <div class="map" data-map-embed data-reveal>
+        <p>Peta akan tampil di sini.</p>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <div class="deco-layer" aria-hidden="true">
+        <img class="deco deco--lily" data-parallax="0.14" src="assets/orn-lily.webp" alt="" width="560" height="635" loading="lazy" decoding="async">
+      </div>
+      <h2 class="section__title" data-reveal>Konfirmasi kehadiran</h2>
+      <form class="form" id="rsvpForm" novalidate data-reveal>
+        <label class="field">
+          <span>Nama lengkap</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+
+        <fieldset class="field field--choice">
+          <legend>Apakah Anda hadir?</legend>
+          <label><input type="radio" name="attendance" value="Hadir" required> Hadir</label>
+          <label><input type="radio" name="attendance" value="Tidak hadir"> Tidak hadir</label>
+        </fieldset>
+
+        <label class="field">
+          <span>Jumlah tamu yang hadir</span>
+          <input type="number" name="guests" min="1" max="10" value="1" inputmode="numeric">
+        </label>
+
+        <label class="field">
+          <span>Ucapan dan doa untuk mempelai</span>
+          <textarea name="message" rows="4" maxlength="300"></textarea>
+        </label>
+
+        <button class="btn" type="submit" id="rsvpSubmit">Kirim konfirmasi</button>
+        <p class="form__status" id="rsvpStatus" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section section--tinted" id="wishes">
+      <div class="deco-layer" aria-hidden="true">
+        <img class="deco deco--filigree" data-parallax="0.08" src="assets/orn-filigree.webp" alt="" width="640" height="677" loading="lazy" decoding="async">
+      </div>
+      <h2 class="section__title" data-reveal>Ucapan untuk kami</h2>
+      <ul class="wishes" id="wishesList" data-reveal>
+        <li class="wishes__empty">Belum ada ucapan. Jadilah yang pertama.</li>
+      </ul>
+      <template id="wishTemplate">
+        <li class="wish">
+          <div class="wish__avatar" aria-hidden="true"></div>
+          <div class="wish__body">
+            <div class="wish__head">
+              <strong class="wish__name"></strong>
+              <time class="wish__date"></time>
+            </div>
+            <p class="wish__message"></p>
+            <button class="wish__like" type="button" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span class="wish__count" hidden></span>
+            </button>
+          </div>
+        </li>
+      </template>
+    </section>
+
+    <section class="closing" id="closing">
+      <div class="deco-layer" aria-hidden="true">
+        <img class="deco deco--quote-md deco--twinkle" data-parallax="0.1" src="assets/orn-star-md.webp" alt="" width="200" height="212" loading="lazy" decoding="async">
+        <img class="deco deco--quote-sm deco--twinkle" data-parallax="-0.08" src="assets/orn-star-sm.webp" alt="" width="110" height="112" loading="lazy" decoding="async">
+      </div>
+      <div class="quote-wrap" data-parallax="0.03">
+        <figure class="quote" data-reveal>
+          <div class="quote__inner">
+            <span class="quote__mark" aria-hidden="true">“</span>
+            <blockquote class="quote__text" data-bind="quote">Kalimat penutup.</blockquote>
+            <span class="quote__rule" aria-hidden="true"></span>
+            <figcaption class="quote__names">
+              <span data-bind="groomNickname">Pria</span> &amp; <span data-bind="brideNickname">Wanita</span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="music" id="musicToggle" type="button" aria-label="Putar atau jeda musik">
+    <span class="music__icon" aria-hidden="true">♪</span>
+  </button>
+
+  <script src="js/config.js"></script>
+  <script src="js/bindings.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/links.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/preload.js"></script>
+  <script src="js/opening.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/wishes.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
