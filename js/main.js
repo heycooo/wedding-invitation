@@ -2,6 +2,7 @@
   "use strict";
 
   document.addEventListener("DOMContentLoaded", function () {
+    WeddingViewport.init();
     const config = window.WEDDING_CONFIG;
 
     WeddingBindings.init(config);
