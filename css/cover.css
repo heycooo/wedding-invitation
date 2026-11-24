@@ -1,42 +1,21 @@
-/* ==========================================================
-   cover.css - sampul amplop layar penuh (TAHAP 1 + 2)
-
-   Variabel yang bisa diubah ada di blok .cover paling atas:
-   warna, ukuran kertas dan segel, serta semua durasi.
-
-   Urutan 1: ketukan pertama (.is-open)
-   0,00s  lipatan terbuka 3D ke belakang
-   0,66s  kertas naik setengah
-   1,29s  tombol "Buka Undangan" muncul
-
-   Urutan 2: klik "Buka Undangan" (.is-leaving)
-   0,00s  amplop meluncur turun                     (--dur-slide)
-   0,25s  kertas keluar penuh dan ke tengah         (--dur-center)
-   1,02s  kertas terbuka seperti sampul buku ke kiri (--dur-flip)
-   1,82s  kabut putih masuk                          (--dur-mist-in)
-   2,72s  (.is-revealing) kabut memudar, isi undangan terungkap (--dur-mist-out)
-   ========================================================== */
-
 .cover {
-  /* ---- Warna ---- */
-  --amplop: #0f2d5f;         /* badan amplop depan (bagian bawah) */
-  --amplop-gelap: #0a1d40;   /* bagian dalam amplop dan sisi dalam lipatan */
-  --lipatan: #17488a;        /* sisi luar lipatan (bagian atas) */
-  --kertas-bg: #f3ead6;      /* kertas placeholder (dipakai sebelum kertas.png ada) */
-  --halaman: #f4f1ea;        /* halaman di balik sampul kertas saat terbuka */
-  --kabut: #f4f1ea;          /* warna kabut; ganti ke biru pucat jika terlalu terang */
 
-  /* ---- Ukuran dan posisi ---- */
-  --u: 1vh;                                            /* 1% tinggi layar */
-  --cw: min(100vw, var(--frame-width));                /* lebar kolom cover */
-  --paper-w: min(calc(var(--cw) * 0.9), calc(58 * var(--u))); /* lebar kertas (rasio 3:4) */
+  --amplop: #0f2d5f;
+  --amplop-gelap: #0a1d40;
+  --lipatan: #17488a;
+  --kertas-bg: #f3ead6;
+  --halaman: #f4f1ea;
+  --kabut: #f4f1ea;
+
+  --u: 1vh;
+  --cw: min(100vw, var(--frame-width));
+  --paper-w: min(calc(var(--cw) * 0.9), calc(58 * var(--u)));
   --paper-h: calc(var(--paper-w) * 4 / 3);
-  --rise: calc(60 * var(--u));                         /* kertas naik saat amplop dibuka */
-  --rise-center: calc(72 * var(--u) - (100 * var(--u) - var(--paper-h)) / 2); /* kertas ke tengah layar */
-  --seal-size: 34%;          /* lebar segel, persen dari lebar layar */
-  --env-top: 0%;             /* jarak engsel lipatan dari tepi atas. 0% = amplop penuh layar */
+  --rise: calc(60 * var(--u));
+  --rise-center: calc(72 * var(--u) - (100 * var(--u) - var(--paper-h)) / 2);
+  --seal-size: 34%;
+  --env-top: 0%;
 
-  /* ---- Durasi ---- */
   --dur-flap: 1.1s;
   --dur-paper: 0.9s;
   --dur-button: 0.6s;
@@ -46,18 +25,15 @@
   --dur-mist-in: 0.9s;
   --dur-mist-out: 1.2s;
 
-  /* ---- Jeda otomatis dari durasi di atas ---- */
   --center-delay: calc(var(--dur-slide) * 0.25);
   --flip-delay: calc(var(--center-delay) + var(--dur-center) * 0.85);
   --mist-delay: calc(var(--flip-delay) + var(--dur-flip) * 0.62);
 
-  /* ---- Gerak ---- */
   --ease-smooth: cubic-bezier(0.22, 0.8, 0.24, 1);
   --ease-flap: cubic-bezier(0.5, 0.05, 0.25, 1);
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-flip: cubic-bezier(0.55, 0.05, 0.25, 1);
 
-  /* Tekstur linen halus dari CSS */
   --linen:
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 3px),
     repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 3px);
@@ -80,7 +56,6 @@
   .cover { height: 100dvh; --u: 1dvh; }
 }
 
-/* Cover baru ditampilkan setelah segel dan kertas selesai dimuat (kelas .is-ready dari opening.js) */
 .cover .envelope,
 .cover .cover__stage {
   opacity: 0;
@@ -89,7 +64,6 @@
 .cover.is-ready .envelope,
 .cover.is-ready .cover__stage { opacity: 1; }
 
-/* ---------- Amplop layar penuh ---------- */
 .envelope {
   position: absolute;
   top: var(--env-top);
@@ -115,7 +89,6 @@
   background-image: var(--linen);
 }
 
-/* Bagian depan amplop dengan takik V; menaungi kertas di belakangnya */
 .envelope__front {
   inset: 0;
   z-index: 3;
@@ -129,7 +102,6 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.22)), var(--linen);
 }
 
-/* ---------- Kertas: berada di antara bagian dalam dan bagian depan amplop ---------- */
 .envelope__paper {
   left: 50%;
   top: calc(72 * var(--u));
@@ -142,13 +114,11 @@
 }
 .cover.is-open .envelope__paper { transform: translate(-50%, calc(var(--rise) * -1)); }
 
-/* Halaman di balik sampul: tersembunyi sampai sampul mulai terbuka */
 .paper__inner,
 .paper__card { position: absolute; inset: 0; }
 
 .paper__inner { background: var(--halaman); opacity: 0; }
 
-/* Sampul kertas: berengsel di sisi kiri, terbuka seperti sampul buku */
 .paper__card {
   transform-origin: 0 50%;
   transform-style: preserve-3d;
@@ -168,14 +138,12 @@
   background: linear-gradient(90deg, #e4dfd2, #f1ede2);
 }
 
-/* GANTI PLACEHOLDER: kertas.png dipasang otomatis oleh preload.js jika file ada */
 .cover.has-paper-image .paper__face--front {
   background: var(--paper-image) center / contain no-repeat;
   box-shadow: none;
 }
 .cover.has-paper-image .envelope__paper { filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35)); }
 
-/* ---------- Bayangan lembut di tepi lipatan ---------- */
 .envelope__shadow {
   left: -1%;
   top: 0;
@@ -194,7 +162,6 @@
 }
 .cover.is-open .envelope__shadow { opacity: 0; }
 
-/* ---------- Lipatan atas (3D) ---------- */
 .flap {
   top: 0;
   left: 0;
@@ -225,15 +192,13 @@
   background-color: var(--lipatan);
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1)), var(--linen);
 }
-/* Sisi dalam lipatan: sedikit lebih gelap, ujung menghadap atas saat terbuka */
+
 .flap__shape--in {
   clip-path: polygon(0 100%, 100% 100%, 100% 32.3%, 50% 0, 0 32.3%);
   background-color: var(--amplop-gelap);
   background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)), var(--linen);
 }
 
-/* Segel: bagian dari sisi luar lipatan, di ujung V; ikut terangkat bersama lipatan.
-   Tidak ada placeholder: segel baru tampil setelah segel.png selesai dimuat (diatur preload.js). */
 .seal {
   position: absolute;
   left: 50%;
@@ -249,7 +214,6 @@
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
 }
 
-/* Lipatan memudar di akhir gerak dan turun ke lapisan belakang agar tidak menutupi kertas */
 @keyframes flap-fade {
   0%, 44% { opacity: 1; z-index: 4; }
   45%     { z-index: 1; }
@@ -257,7 +221,6 @@
   100%    { opacity: 0; z-index: 1; }
 }
 
-/* ---------- Area ketuk di mana saja ---------- */
 .cover__tap {
   position: absolute;
   inset: 0;
@@ -270,7 +233,6 @@
 .cover__tap:focus-visible { outline: 2px solid var(--accent); outline-offset: -8px; }
 .cover.is-open .cover__tap { pointer-events: none; }
 
-/* ---------- Teks di atas amplop ---------- */
 .cover__stage {
   position: absolute;
   inset: 0;
@@ -286,7 +248,6 @@
   pointer-events: none;
 }
 
-/* Nama tamu tertulis di lipatan */
 .cover__top {
   max-width: 18rem;
   text-align: center;
@@ -315,7 +276,16 @@
   overflow: hidden;
 }
 
-/* Petunjuk dan tombol berbagi tempat yang sama di bagian bawah */
+.cover__apology {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--ink-soft);
+  opacity: 0.85;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
 .cover__footer {
   width: 100%;
   min-height: 3.5rem;
@@ -335,7 +305,6 @@
   animation: hint-pulse 2.6s ease-in-out infinite;
 }
 
-/* Tombol tersembunyi sampai kertas naik, lalu muncul perlahan */
 .cover__button {
   pointer-events: auto;
   opacity: 0;
@@ -357,11 +326,6 @@
   50%      { opacity: 1; }
 }
 
-/* ==========================================================
-   URUTAN 2: klik "Buka Undangan" (.is-leaving)
-   ========================================================== */
-
-/* Tombol memudar cepat */
 .cover.is-leaving .cover__button {
   opacity: 0;
   pointer-events: none;
@@ -369,17 +333,14 @@
   visibility: hidden;
 }
 
-/* 1. Amplop meluncur turun keluar layar */
 .cover.is-leaving .envelope__back,
 .cover.is-leaving .envelope__front { transform: translateY(105%); }
 
-/* 2. Kertas keluar penuh dan bergerak ke tengah layar */
 .cover.is-leaving .envelope__paper {
   transform: translate(-50%, calc(var(--rise-center) * -1)) scale(1.04);
   transition: transform var(--dur-center) var(--ease-smooth) var(--center-delay);
 }
 
-/* 3. Sampul kertas terbuka ke kiri; halaman di baliknya muncul tepat saat gerak dimulai */
 .cover.is-leaving .paper__inner {
   opacity: 1;
   transition: opacity 0.01s linear var(--flip-delay);
@@ -389,7 +350,6 @@
   transition: transform var(--dur-flip) var(--ease-flip) var(--flip-delay);
 }
 
-/* 4. Kabut putih lembut: terdiri dari warna dasar dan dua gumpalan yang bergeser pelan */
 .cover__mist {
   position: absolute;
   inset: 0;
@@ -426,7 +386,6 @@
   animation: mist-in var(--dur-mist-in) ease var(--mist-delay) forwards;
 }
 
-/* 5. Setelah kabut penuh: sampul dan amplop disembunyikan di balik kabut, lalu kabut memudar */
 .cover.is-revealing { background: none; pointer-events: none; }
 .cover.is-revealing .envelope,
 .cover.is-revealing .cover__stage,
@@ -442,7 +401,6 @@
   to   { transform: translate3d(4%, 3%, 0); }
 }
 
-/* will-change hanya aktif selama animasi berjalan */
 .cover.is-open:not(.is-settled) .flap,
 .cover.is-open:not(.is-settled) .envelope__paper { will-change: transform; }
 .cover.is-leaving .envelope__back,
@@ -450,7 +408,6 @@
 .cover.is-leaving .envelope__paper,
 .cover.is-leaving .paper__card { will-change: transform; }
 
-/* ---------- Mode hemat gerak: seluruh urutan menjadi fade sederhana ---------- */
 @media (prefers-reduced-motion: reduce) {
   .cover {
     --dur-flap: 0.4s;
@@ -478,7 +435,6 @@
     opacity: 1;
   }
 
-  /* Tanpa luncuran, putaran, atau perpindahan: amplop memudar, lalu kabut */
   .cover.is-leaving .envelope__back,
   .cover.is-leaving .envelope__front {
     transform: none;
