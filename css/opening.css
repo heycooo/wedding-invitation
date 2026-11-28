@@ -1,0 +1,70 @@
+#opening {
+  padding: calc(var(--space) * 3.4) var(--space) 8.5rem;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+#opening .opening__bismillah {
+  display: block;
+  width: min(80%, 18rem);
+  height: auto;
+}
+
+.opening__greeting {
+  font-family: "Aladin", "Pinyon Script", cursive;
+  font-size: clamp(1.4rem, 6.6vw, 1.8rem);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-wrap: balance;
+  --reveal-delay: 0.15s;
+}
+
+.opening__invite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  --reveal-delay: 0.3s;
+}
+.opening__invite::before {
+  content: "";
+  width: 4.5rem;
+  height: 1px;
+  margin-bottom: 0.9rem;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.opening__script,
+.opening__event {
+  font-family: "Pinyon Script", "Brush Script MT", cursive;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.opening__script {
+  font-size: clamp(1.45rem, 6.8vw, 1.85rem);
+  color: var(--ink);
+}
+.opening__body {
+  max-width: 17rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.opening__event {
+  font-size: clamp(2.2rem, 10.5vw, 2.9rem);
+  color: var(--accent);
+}
+
+.deco--open-porcelain {
+  width: 8.5rem;
+  left: -11%;
+  bottom: -1.2rem;
+}
+
+.deco--open-lily {
+  width: 8rem;
+  right: -11%;
+  bottom: -1rem;
+  transform: translate3d(0, var(--py, 0px), 0) scaleX(-1);
+}
