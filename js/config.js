@@ -27,6 +27,13 @@ window.WEDDING_CONFIG = {
     calendarDescription: "Kami mengundang Anda untuk hadir dan memberikan doa restu."
   },
 
+  opening: {
+    greeting: "Assalamualaikum warahmatullahi wabarakatuh",
+    lineScript: "Dengan mengharap ridho dari Allah SWT,",
+    lineBody: "Izinkan kami mengundang Bapak/Ibu dalam acara",
+    eventName: "Walimatul ’Ursy"
+  },
+
   quote: "Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.",
   quoteSource: "Ar-Rum : 21",
 

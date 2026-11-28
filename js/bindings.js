@@ -43,7 +43,7 @@ window.WeddingBindings = (function () {
     const start = new Date(config.event.start);
     const guestName = readGuestName();
 
-    const values = Object.assign({}, config.couple, {
+    const values = Object.assign({}, config.couple, config.opening, {
       venueName: config.event.venueName,
       venueAddress: config.event.venueAddress,
       dateText: formatDate(start, config.event.timeZone),
