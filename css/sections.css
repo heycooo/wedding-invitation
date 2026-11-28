@@ -306,8 +306,8 @@
   color: var(--ink);
 }
 
-#couple::before,
-#couple::after,
+#opening::before,
+#opening::after,
 .closing::before,
 .closing::after {
   content: "";
@@ -317,8 +317,8 @@
   background: url("../assets/ornament-corner.png") center / 100% 100% no-repeat;
   pointer-events: none;
 }
-#couple::before  { top: 0; left: 0; }
-#couple::after   { top: 0; right: 0; transform: scaleX(-1); }
+#opening::before { top: 0; left: 0; }
+#opening::after  { top: 0; right: 0; transform: scaleX(-1); }
 .closing::before { bottom: 0; left: 0; transform: scaleY(-1); }
 .closing::after  { bottom: 0; right: 0; transform: scale(-1, -1); }
 
