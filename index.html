@@ -70,12 +70,12 @@
         <article class="person" data-reveal="left">
           <div class="person__photo" data-parallax="0.025" data-bind-photo="bride" role="img" aria-label="Foto mempelai wanita"></div>
           <h3 data-bind="brideName">Mempelai Wanita</h3>
-          <p>Putri dari<br><span data-bind="brideFather">Nama Ayah</span> &amp; <span data-bind="brideMother">Nama Ibu</span></p>
+          <p class="person__parents"><span class="person__label">Putri dari</span><span data-bind="brideFather">Nama Ayah</span><span class="person__amp">&amp;</span><span data-bind="brideMother">Nama Ibu</span></p>
         </article>
         <article class="person" data-reveal="right">
           <div class="person__photo" data-parallax="0.045" data-bind-photo="groom" role="img" aria-label="Foto mempelai pria"></div>
           <h3 data-bind="groomName">Mempelai Pria</h3>
-          <p>Putra dari<br><span data-bind="groomFather">Nama Ayah</span> &amp; <span data-bind="groomMother">Nama Ibu</span></p>
+          <p class="person__parents"><span class="person__label">Putra dari</span><span data-bind="groomFather">Nama Ayah</span><span class="person__amp">&amp;</span><span data-bind="groomMother">Nama Ibu</span></p>
         </article>
       </div>
     </section>
@@ -191,9 +191,7 @@
             <span class="quote__mark" aria-hidden="true">“</span>
             <blockquote class="quote__text" data-bind="quote">Kalimat penutup.</blockquote>
             <span class="quote__rule" aria-hidden="true"></span>
-            <figcaption class="quote__names">
-              <span data-bind="brideNickname">Wanita</span> &amp; <span data-bind="groomNickname">Pria</span>
-            </figcaption>
+            <figcaption class="quote__names" data-bind="quoteSource">Ar-Rum : 21</figcaption>
           </div>
         </figure>
       </div>
