@@ -7,10 +7,11 @@
   <title>Undangan Pernikahan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Bodoni+Moda:ital,wght@0,500;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Pinyon+Script&family=Bodoni+Moda:ital,wght@0,500;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/cover.css">
   <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/opening.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/parallax.css">
 </head>
@@ -59,6 +60,21 @@
   </section>
 
   <main id="invitation">
+
+    <section class="section opening" id="opening">
+      <div class="deco-layer" aria-hidden="true">
+        <img class="deco deco--mist" data-parallax="0.12" src="assets/orn-mist.webp" alt="" width="960" height="232" loading="lazy" decoding="async">
+        <img class="deco deco--open-porcelain" data-parallax="0.16" src="assets/orn-porcelain.webp" alt="" width="640" height="687" loading="lazy" decoding="async">
+        <img class="deco deco--open-lily" data-parallax="0.12" src="assets/orn-lily.webp" alt="" width="560" height="635" loading="lazy" decoding="async">
+      </div>
+      <img class="opening__bismillah" data-reveal src="assets/bismillah.webp" alt="Bismillahirrahmanirrahim" width="800" height="312" decoding="async">
+      <p class="opening__greeting" data-bind="greeting" data-reveal>Assalamualaikum warahmatullahi wabarakatuh</p>
+      <div class="opening__invite" data-reveal>
+        <p class="opening__script" data-bind="lineScript">Dengan mengharap ridho dari Allah SWT,</p>
+        <p class="opening__body" data-bind="lineBody">Izinkan kami mengundang Bapak/Ibu dalam acara</p>
+        <p class="opening__event" data-bind="eventName">Walimatul ’Ursy</p>
+      </div>
+    </section>
 
     <section class="section" id="couple">
       <div class="deco-layer" aria-hidden="true">
