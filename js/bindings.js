@@ -1,11 +1,7 @@
-/* ==========================================================
-   bindings.js
-   Tugas: mengisi elemen [data-bind] dan foto dari konfigurasi.
-   Tidak mengubah struktur HTML atau gaya.
-   ========================================================== */
-
 window.WeddingBindings = (function () {
   "use strict";
+
+  const MAX_GUEST_NAME_LENGTH = 60;
 
   function formatDate(date, timeZone) {
     return new Intl.DateTimeFormat("id-ID", {
@@ -26,17 +22,17 @@ window.WeddingBindings = (function () {
     }).format(date);
   }
 
-  // Contoh hasil: "16.00 WIB - selesai"
   function formatTimeRange(event) {
-    const start = formatClock(new Date(event.start), event.timeZone) + " " + event.timeZoneLabel;
-    const end = event.endLabel || formatClock(new Date(event.end), event.timeZone) + " " + event.timeZoneLabel;
-    return start + " - " + end;
+    const start = formatClock(new Date(event.start), event.timeZone);
+
+    if (event.endLabel) {
+      return start + " " + event.timeZoneLabel + " - " + event.endLabel;
+    }
+
+    const end = formatClock(new Date(event.end), event.timeZone);
+    return start + " - " + end + " " + event.timeZoneLabel;
   }
 
-  const MAX_GUEST_NAME_LENGTH = 60;
-
-  // Nama tamu dari link, contoh: index.html?to=Budi%20Santoso
-  // Hanya dipakai sebagai teks (textContent), spasi dirapikan, panjang dibatasi
   function readGuestName() {
     const name = new URLSearchParams(window.location.search).get("to");
     if (!name) return "";
@@ -52,7 +48,8 @@ window.WeddingBindings = (function () {
       venueAddress: config.event.venueAddress,
       dateText: formatDate(start, config.event.timeZone),
       timeText: formatTimeRange(config.event),
-      quote: config.quote
+      quote: config.quote,
+      quoteSource: config.quoteSource
     });
 
     if (guestName) values.guestName = guestName;
